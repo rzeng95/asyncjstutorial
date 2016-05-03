@@ -17,13 +17,17 @@ async.waterfall([
 /*
 Few things to note.
 1)
-Each function ends with a callback function with the number of arguments equal to the number of arguments of the next function. For example, in function 2, arg1,arg2,C,C get passed into blah1,blah2,blah3,blah4
+Each function ends with a callback function with the number of arguments equal to the number of arguments of the next function. 
+For example, in function 2, arg1,arg2,C,C get passed into blah1,blah2,blah3,blah4
 
 2)
-The first "null" of each callback is reserved for returning errors. If a non-null value is passed at any point of any of the three functions then it propagates down until it hits the result function, and throws an error.
+The first "null" of each callback is reserved for returning errors. 
+If a non-null value is passed at any point of any of the three functions then it propagates down until 
+it hits the result function, and throws an error.
 
 3)
-Basically, to get synchronous control flow, a function's callback contains the arguments for the next function. Make sure the arguments line up
+Basically, to get synchronous control flow, a function's callback contains 
+the arguments for the next function. Make sure the arguments line up
 
 4)
 Can you guess what the value of finalResult is?
