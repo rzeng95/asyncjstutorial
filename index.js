@@ -22,7 +22,7 @@ For example, in function 2, arg1,arg2,C,C get passed into blah1,blah2,blah3,blah
 
 2)
 The first "null" of each callback is reserved for returning errors.
-If a non-null value is passed at any point of any of the three functions then it propagates down until
+If a non-null value is passed at any point of any of the three functions then it skips the remaining functions until
 it hits the result function, and throws an error.
 
 3)
