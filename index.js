@@ -17,16 +17,16 @@ async.waterfall([
 /*
 Few things to note.
 1)
-Each function ends with a callback function with the number of arguments equal to the number of arguments of the next function. 
+Each function ends with a callback function with the number of arguments equal to the number of arguments of the next function.
 For example, in function 2, arg1,arg2,C,C get passed into blah1,blah2,blah3,blah4
 
 2)
-The first "null" of each callback is reserved for returning errors. 
-If a non-null value is passed at any point of any of the three functions then it propagates down until 
+The first "null" of each callback is reserved for returning errors.
+If a non-null value is passed at any point of any of the three functions then it propagates down until
 it hits the result function, and throws an error.
 
 3)
-Basically, to get synchronous control flow, a function's callback contains 
+Basically, to get synchronous control flow, a function's callback contains
 the arguments for the next function. Make sure the arguments line up
 
 4)
@@ -42,6 +42,12 @@ async.waterfall([
         var B = 20;
         console.log("1.A = " + A);
         console.log("1.B = " + B);
+
+        //callback("oh no!");
+        // This would skip the next two functions since the first arg is non-null,
+        // signifying that it is an error. Try uncommenting the above line and commenting the below function.
+
+        //This is a normal return statement. first arg says no error, rest of args are passed to next func
         callback(null, A, B);
     },
     function(arg1,arg2,callback) {
@@ -62,7 +68,7 @@ async.waterfall([
 
 ], function(err,res) {
     if(err)
-        throw err;
+        console.log("Error :" + err);
     else {
         console.log("=====INSIDE RESULT FUNCTION=====");
         var finalResult = res;
