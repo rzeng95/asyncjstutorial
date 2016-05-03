@@ -45,7 +45,7 @@ async.waterfall([
 
         //callback("oh no!");
         // This would skip the next two functions since the first arg is non-null,
-        // signifying that it is an error. Try uncommenting the above line and commenting the below function.
+        // signifying that it is an error. Try uncommenting the above line and commenting the callback below.
 
         //This is a normal return statement. first arg says no error, rest of args are passed to next func
         callback(null, A, B);
